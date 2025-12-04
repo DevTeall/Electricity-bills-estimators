@@ -4,13 +4,14 @@ A fair and transparent way to split electricity bills among tenants based on act
 
 ## 📺 Video Tutorial
 
-[![Watch Tutorial] https://youtube.com/shorts/zoR76AAtL1w?si=_3Z7Rh2FIOIzEwLt
+[![Watch Tutorial]. https://youtube.com/shorts/zoR76AAtL1w?si=7J97UmNXyZlGDQTw
 
 
 ## 🌟 Features
 
 - ✅ **Fair Usage Calculation** - Bills calculated based on actual appliance usage
-- 📱 **Dropdown Appliance Selection** - Easy selection from common household appliances
+- 📱 **Dropdown Appliance Selection** -
+Easy selection from common household appliances
 - 👥 **Multiple Tenants** - Support for up to 10 tenants
 - 💰 **Percentage Breakdown** - See each tenant's usage percentage clearly
 - 🎨 **Modern UI** - Beautiful gradient design with smooth animations
@@ -19,9 +20,7 @@ A fair and transparent way to split electricity bills among tenants based on act
 
 ## 🚀 Live Demo
 
-[Click here to try it live](https://devteall.github.io/tenant-bill-calculator)
-
-*Replace YOUR_USERNAME with your GitHub username*
+[Click here to try it live](https://devteall.github.io/electricity-bills-estimator)
 
 ## 📖 How It Works
 
@@ -57,12 +56,12 @@ Tenant's Share (₦) = (Tenant's kWh ÷ Total kWh) × Total Bill Amount
 ## 💻 Installation & Usage
 
 ### Method 1: Use Online
-Just visit the [live demo link](https://YOUR_USERNAME.github.io/tenant-bill-calculator) and start using!
+Just visit the [live demo link](https://devteall.github.io/electricity-bills-estimators) and start using!
 
 ### Method 2: Download & Run Locally
 1. Download or clone this repository
    ```bash
-   git clone https://github.com/YOUR_USERNAME/tenant-bill-calculator.git
+   git clone https://github.com/devteall/electricity-bills-estimators.git
    ```
 2. Open `index.html` in any web browser
 3. No installation or dependencies required!
@@ -71,15 +70,15 @@ Just visit the [live demo link](https://YOUR_USERNAME.github.io/tenant-bill-calc
 
 | Appliance | Power Rating |
 |-----------|--------------|
-| TV | 70W |
-| Fan | 60W |
-| Freezer | 150W |
-| Fridge | 200W |
-| AC (1HP) | 900W |
-| LED Bulb | 15W |
-| Iron | 1000W |
-| Laptop | 65W |
-| Router | 12W |
+| TV        | 70W |
+| Fan       | 60W |
+| Freezer   | 150W |
+| Fridge    | 200W |
+| AC (1HP)  | 900W |
+| LED Bulb  | 15W |
+| Iron      | 1000W |
+| Laptop    | 65W |
+| Router    | 12W |
 
 *You can easily modify the appliances array in the JavaScript code to add more*
 
@@ -132,7 +131,7 @@ Found a bug? Have a feature idea? Contributions are welcome!
 🐦 Twitter: https://x.com/Web3believer?t=rclmaPx4wjGQvz5iq5KiZQ&s=09
 💼 LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
 
-**Project Link:** [https://github.com/YOUR_USERNAME/tenant-bill-calculator](https://github.com/YOUR_USERNAME/tenant-bill-calculator)
+**Project Link:** [https://github.com/devteall/electricity-bills-estimator](https://github.com/devteall/electricity-bills-estimator)
 
 ## 📄 License
 
