@@ -20,7 +20,7 @@ Easy selection from common household appliances
 
 ## 🚀 Live Demo
 
-[Click here to try it live](https://devteall.github.io/electricity-bills-estimators)
+[Click here to try it live](https://devteall.github.io/Electricity-bills-estimators)
 
 ## 📖 How It Works
 
@@ -56,7 +56,7 @@ Tenant's Share (₦) = (Tenant's kWh ÷ Total kWh) × Total Bill Amount
 ## 💻 Installation & Usage
 
 ### Method 1: Use Online
-Just visit the [live demo link](https://devteall.github.io/electricity-bills-estimators) and start using!
+Just visit the [live demo link](https://devteall.github.io/Electricity-bills-estimators) and start using!
 
 ### Method 2: Download & Run Locally
 1. Download or clone this repository
