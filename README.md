@@ -1,4 +1,4 @@
-# ⚡ Tenant Electricity Bill Calculator
+# ⚡ Tenant Electricity Bills Estimators 
 
 A fair and transparent way to split electricity bills among tenants based on actual appliance usage and hours.
 
@@ -20,7 +20,7 @@ Easy selection from common household appliances
 
 ## 🚀 Live Demo
 
-[Click here to try it live](https://devteall.github.io/electricity-bills-estimator)
+[Click here to try it live](https://devteall.github.io/electricity-bills-estimators)
 
 ## 📖 How It Works
 
@@ -131,7 +131,7 @@ Found a bug? Have a feature idea? Contributions are welcome!
 🐦 Twitter: https://x.com/Web3believer?t=rclmaPx4wjGQvz5iq5KiZQ&s=09
 💼 LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
 
-**Project Link:** [https://github.com/devteall/electricity-bills-estimator](https://github.com/devteall/electricity-bills-estimator)
+**Project Link:** [https://github.com/devteall/electricity-bills-estimator](https://github.com/devteall/electricity-bills-estimators)
 
 ## 📄 License
 
