@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenant Electricity Bill Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .setup-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        input[type="number"], input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="number"]:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        button {
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background: #5568d3;
+        }
+        
+        .tenant-box {
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .tenant-box h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .appliances-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .appliance-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            transition: background 0.2s;
+        }
+        
+        .appliance-item:hover {
+            background: #e9ecef;
+        }
+        
+        .appliance-item input[type="checkbox"] {
+            margin: 0 10px 0 0;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .appliance-item label {
+            margin: 0;
+            font-weight: normal;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .result-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .result-box h3 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .result-box p {
+            background: rgba(255,255,255,0.2);
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚡ Tenant Electricity Bill Calculator</h1>
+        
+        <div class="setup-box">
+            <label for="totalBill">Total Electricity Bill (₦):</label>
+            <input type="number" id="totalBill" placeholder="e.g. 15000">
+            
+            <label for="tenantCount">Number of Tenants:</label>
+            <input type="number" id="tenantCount" placeholder="e.g. 3" min="1" max="10">
+            
+            <button onclick="generateTenantForms()">Generate Tenant Forms</button>
+        </div>
+        
+        <div id="tenantForms"></div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const appliances = [
+            { name: "TV", watts: 70 },
+            { name: "Fan", watts: 60 },
+            { name: "Freezer", watts: 150 },
+            { name: "Fridge", watts: 200 },
+            { name: "AC (1HP)", watts: 900 },
+            { name: "Bulb (LED)", watts: 15 },
+            { name: "Iron", watts: 1000 },
+            { name: "Laptop", watts: 65 },
+            { name: "Router", watts: 12 }
+        ];
+
+        function generateTenantForms() {
+            const tenantCount = document.getElementById("tenantCount").value;
+            const container = document.getElementById("tenantForms");
+            
+            if (!tenantCount || tenantCount < 1) {
+                alert("Please enter number of tenants");
+                return;
+            }
+            
+            container.innerHTML = "";
+            
+            for (let i = 1; i <= tenantCount; i++) {
+                let applianceOptions = "";
+                appliances.forEach(appl => {
+                    applianceOptions += `
+                        <div class="appliance-item">
+                            <input type="checkbox" value="${appl.watts}" class="appliance${i}" id="appl${i}_${appl.name}">
+                            <label for="appl${i}_${appl.name}">${appl.name} (${appl.watts}W)</label>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML += `
+                <div class="tenant-box">
+                    <h3>Tenant ${i}</h3>
+                    <label for="name${i}">Name (optional):</label>
+                    <input type="text" id="name${i}" placeholder="Tenant name">
+                    
+                    <label>Select appliances:</label>
+                    <div class="appliances-grid">
+                        ${applianceOptions}
+                    </div>
+                    
+                    <label for="hours${i}">Hours used per day:</label>
+                    <input type="number" id="hours${i}" placeholder="e.g. 6" min="0" max="24">
+                </div>
+                `;
+            }
+            
+            container.innerHTML += `
+                <button onclick="calculateFairShare()">Calculate Fair Share</button>
+            `;
+        }
+
+        function calculateFairShare() {
+            const totalBill = parseFloat(document.getElementById("totalBill").value);
+            const tenantCount = parseInt(document.getElementById("tenantCount").value);
+            
+            if (!totalBill || totalBill <= 0) {
+                alert("Please enter a valid total bill amount");
+                return;
+            }
+            
+            let tenantEnergy = [];
+            let totalEnergy = 0;
+            
+            for (let i = 1; i <= tenantCount; i++) {
+                let hours = parseFloat(document.getElementById(`hours${i}`).value);
+                
+                if (!hours || hours < 0) {
+                    alert(`Please enter valid hours for Tenant ${i}`);
+                    return;
+                }
+                
+                let totalWatts = 0;
+                let selected = document.querySelectorAll(`.appliance${i}:checked`);
+                
+                selected.forEach(item => {
+                    totalWatts += parseFloat(item.value);
+                });
+                
+                let kwh = (totalWatts * hours * 30) / 1000;
+                tenantEnergy.push(kwh);
+                totalEnergy += kwh;
+            }
+            
+            if (totalEnergy === 0) {
+                alert("Please select at least one appliance for the tenants");
+                return;
+            }
+            
+            let output = `<div class="result-box"><h3>💰 Fair Usage Breakdown</h3>`;
+            
+            for (let i = 1; i <= tenantCount; i++) {
+                let share = (tenantEnergy[i - 1] / totalEnergy) * totalBill;
+                let name = document.getElementById(`name${i}`).value || `Tenant ${i}`;
+                let percentage = ((tenantEnergy[i - 1] / totalEnergy) * 100).toFixed(1);
+                
+                output += `
+                    <p><strong>${name}:</strong> ₦${share.toFixed(2)} <small>(${percentage}% of usage)</small></p>
+                `;
+            }
+            
+            output += `</div>`;
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+</body>
+</html>
